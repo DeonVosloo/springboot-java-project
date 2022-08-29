@@ -9,15 +9,9 @@ public class Student
 {   
     @Id
     private int id;
-
     private String fullName;
-
-
 	private String address;
-
 	private String email;
-
-
     private String password;
 
     public int getStudentID() {
@@ -63,6 +57,14 @@ public class Student
     public Student(int studentID, String fullName, String address, String email, String password) 
     {
         this.id = studentID;
+        this.fullName = fullName;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Student(String fullName, String address, String email, String password) 
+    {
         this.fullName = fullName;
         this.address = address;
         this.email = email;
