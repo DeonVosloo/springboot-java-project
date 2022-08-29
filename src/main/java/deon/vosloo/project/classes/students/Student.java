@@ -2,14 +2,31 @@ package deon.vosloo.project.classes.students;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Date;
 
-@Entity ()
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "student")
 public class Student 
 {   
-    private @Id int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column
 	private String fullName;
+
+    @Column
 	private String address;
+
+    @Column
 	private String email;
+
+    @Column
     private String password;
 
     public int getStudentID() {
