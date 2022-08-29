@@ -30,7 +30,7 @@ public class StudentController {
         return studentRepository.findAll();
     }
     
-    @GetMapping("/students/{id}")
+    @GetMapping("/student/{id}")
     ResponseEntity<?> getStudent(@PathVariable Long id) {
         Optional<Student> student = studentRepository.findById(id);
         return student.map(response -> ResponseEntity.ok().body(response))
