@@ -1,4 +1,4 @@
-package deon.vosloo.project.classes;
+package deon.vosloo.project.classes.students;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
