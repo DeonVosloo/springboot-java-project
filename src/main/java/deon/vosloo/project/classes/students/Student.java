@@ -16,11 +16,11 @@ public class Student
 	private String email;
     private String password;
 
-    public int getStudentID() {
+    public int getID() {
         return id;
     }
 
-    public void setStudentID(int studentID) {
+    public void setID(int studentID) {
         this.id = studentID;
     }
 
