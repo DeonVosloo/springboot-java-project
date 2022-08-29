@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect ,React} from 'react';
 
-function App() {
+const App = () => {
 
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(false);
