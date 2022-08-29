@@ -1,6 +1,7 @@
 package deon.vosloo.project.classes.students;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "student")
 public class Student 
 {   
-    @Id
+    @Id @GeneratedValue
     private int id;
     private String fullName;
 	private String address;
