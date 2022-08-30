@@ -1,4 +1,4 @@
-package deon.vosloo.project;
+package deon.vosloo.project.controllers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import deon.vosloo.project.classes.students.Modal.Student;
 import deon.vosloo.project.classes.students.Services.StudentService;
 
+
 @RestController
 @RequestMapping("/api")
 public class StudentController 
