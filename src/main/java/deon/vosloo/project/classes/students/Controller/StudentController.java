@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import deon.vosloo.project.classes.students.Modal.Student;
-import deon.vosloo.project.classes.students.Services.StudentService;
+import deon.vosloo.project.classes.students.Service.StudentService;
 
 
 @RestController
