@@ -2,9 +2,9 @@ package deon.vosloo.project.classes.students.Services;
 
 import java.util.List;
 
-import deon.vosloo.project.classes.students.Student;
+import deon.vosloo.project.classes.students.Modal.Student;
 
-public interface StudentServices {
+public interface StudentService {
     List<Student> get();
  
     Student get(int id);

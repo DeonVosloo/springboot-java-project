@@ -1,4 +1,4 @@
-package deon.vosloo.project.classes.students;
+package deon.vosloo.project.classes.students.Modal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

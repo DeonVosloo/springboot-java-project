@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import deon.vosloo.project.classes.students.Student;
+import deon.vosloo.project.classes.students.Modal.Student;
 
 @Repository
 public class StudentDAOImplementation implements StudentDAO 

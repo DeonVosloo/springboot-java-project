@@ -2,7 +2,7 @@ package deon.vosloo.project.classes.students.DAO;
 
 import java.util.List;
 
-import deon.vosloo.project.classes.students.Student;
+import deon.vosloo.project.classes.students.Modal.Student;
 
 public interface StudentDAO 
 {
