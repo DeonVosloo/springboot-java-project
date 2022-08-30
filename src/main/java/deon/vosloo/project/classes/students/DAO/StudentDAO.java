@@ -1,6 +1,8 @@
-package deon.vosloo.project.classes.students;
+package deon.vosloo.project.classes.students.DAO;
 
 import java.util.List;
+
+import deon.vosloo.project.classes.students.Student;
 
 public interface StudentDAO 
 {
