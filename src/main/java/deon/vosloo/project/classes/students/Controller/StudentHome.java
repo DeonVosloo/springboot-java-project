@@ -1,4 +1,4 @@
-package deon.vosloo.project.classes.students;
+package deon.vosloo.project.classes.students.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
