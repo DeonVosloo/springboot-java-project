@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Student 
 {   
     @Id @Column @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column
     private String fullName;
@@ -27,11 +27,11 @@ public class Student
     @Column
     private String password;
 
-    public int getID() {
+    public long getID() {
         return id;
     }
 
-    public void setID(int studentID) {
+    public void setID(long studentID) {
         this.id = studentID;
     }
 
@@ -67,7 +67,7 @@ public class Student
         this.password = password;
     }   
 
-    public Student(int studentID, String fullName, String address, String email, String password) 
+    public Student(long studentID, String fullName, String address, String email, String password) 
     {
         this.id = studentID;
         this.fullName = fullName;

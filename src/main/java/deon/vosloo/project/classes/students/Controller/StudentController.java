@@ -1,4 +1,4 @@
-package deon.vosloo.project.classes.students.Controller;
+package deon.vosloo.project.classes.students.controller;
 
 import java.util.List;
 

@@ -10,7 +10,7 @@ const App = () => {
   useEffect(() => {
     setLoading(true);
 
-    fetch('api/students')
+    fetch('api/student')
       .then(response => response.json())
       .then(data => {
         setStudents(data);
@@ -18,9 +18,9 @@ const App = () => {
       })
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p>Loading...</p>;
+  // }
 
 
   return (
