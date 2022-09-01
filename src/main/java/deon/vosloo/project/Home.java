@@ -12,6 +12,8 @@ public class Home {
         SpringApplication.run(Home.class);
     }
 
+    //the code below is to enable CORS which allows strict-origin-when-cross-origin to work (spring API data can be used in REACT)
+    //Each @Mapping annotation must be mapped below if I want there to be no strict-origin-when-cross-origin error in REACT when trying to read that API data in REACT
     @Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
