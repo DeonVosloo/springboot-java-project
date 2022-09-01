@@ -7,18 +7,22 @@ const App = () => {
 
   const [students, setStudents] = useState([]);
 
-  let getStudentsData = () => {
-    fetch("api/students")
+   let getStudentsData = () => {
+    fetch("/api/students", {
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    })
       .then((response) => response.json())
       .then((data) => {      
         setStudents(data);
+        console.log("student data loaded");
       });
   };
 
-  useEffect(() => 
-  {
+ useEffect(() => {
     getStudentsData();
-    console.log("student data loaded");
   }, []);
 
   return (
