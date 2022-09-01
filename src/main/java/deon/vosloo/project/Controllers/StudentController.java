@@ -22,11 +22,6 @@ public class StudentController
     @Autowired
     private StudentRepository studentRepository;
 
-    @GetMapping("/")
-    public String getPage() 
-    {
-        return "Welcome";
-    }
 
     @GetMapping("/students")
     public List<Student> getStudents() 
