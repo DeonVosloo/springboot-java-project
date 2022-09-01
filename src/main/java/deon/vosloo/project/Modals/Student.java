@@ -65,20 +65,5 @@ public class Student
     public void setPassword(String password) {  
         this.password = password;
     }
-    public Student(long id, String fullName, String address, String email, String password) {
-        this.id = id;
-        this.fullName = fullName;
-        this.address = address;
-        this.email = email;
-        this.password = password;
-    }
-
-    public Student(String fullName, String address, String email, String password) {
-        this.fullName = fullName;
-        this.address = address;
-        this.email = email;
-        this.password = password;
-    }
-
     
 }

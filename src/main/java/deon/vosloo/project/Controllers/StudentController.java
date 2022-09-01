@@ -2,6 +2,7 @@ package deon.vosloo.project.Controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import deon.vosloo.project.repository.StudentRepository;
 @RestController
 public class StudentController 
 {
+    @Autowired
     private StudentRepository studentRepository;
 
     @GetMapping("/")
