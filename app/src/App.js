@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect ,React} from 'react';
 
+
 const App = () => {
 
   const [students, setStudents] = useState([]);
 
   let getStudentsData = () => {
-    fetch("http://localhost:8081/api/students")
+    fetch("api/students")
       .then((response) => response.json())
       .then((data) => {      
         setStudents(data);
