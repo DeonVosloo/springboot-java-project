@@ -25,7 +25,10 @@ public class Student
     @Column
     private String password;
 
-    
+    @Column
+    private String courseName;
+
+
     public long getId() {
         return id;
     }
@@ -66,4 +69,11 @@ public class Student
         this.password = password;
     }
     
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
 }

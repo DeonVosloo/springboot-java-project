@@ -44,6 +44,7 @@ public class StudentController
         updateStudent.setAddress(student.getAddress());
         updateStudent.setEmail(student.getEmail());
         updateStudent.setPassword(student.getPassword());
+        updateStudent.setCourseName(student.getCourseName());
 
         studentRepository.save(updateStudent);
 

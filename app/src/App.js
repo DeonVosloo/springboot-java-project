@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect ,React} from 'react';
+import AppHeader from "./components/AppHeader/AppHeader";
 
 
 const App = () => {
@@ -27,6 +28,8 @@ const App = () => {
 
   return (
     <div className="App">
+
+      {/* <AppHeader/> */}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <div className="App-intro">
