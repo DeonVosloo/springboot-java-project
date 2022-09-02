@@ -2,13 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect ,React} from 'react';
 import AppHeader from "./components/AppHeader/AppHeader";
-
+import StudentsTable from "./components/StudentsTable/StudentsTable";
 
 const App = () => {
 
   const [students, setStudents] = useState([]);
 
-   let getStudentsData = () => {
+  let getStudentsData = () => {
     fetch("/api/students", {
       headers : { 
         'Content-Type': 'application/json',
@@ -38,9 +38,13 @@ const App = () => {
             <div key={student.id}>
               {student.fullName}
             </div>
-          )}
+          )} 
         </div>
       </header>
+
+      <div>
+            {/* <StudentsTable/> */}
+          </div>
     </div>
   );
 }
