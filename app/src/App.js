@@ -12,16 +12,10 @@ const App = () => {
     <div className="App">
 
       <AppHeader/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="App-intro">
-          <h2>Students</h2>
-        </div>
-      </header>
 
       <div>
-            <StudentsTableGrid/>
-          </div>
+        <StudentsTableGrid/>
+      </div>
     </div>
   );
 }
