@@ -31,7 +31,7 @@ const Appheader = () => {
 
 
   return (
-    <AppBar position="sticky" sx={{bgcolor:"#131631"}}>
+    <AppBar position="sticky" sx={{bgcolor:"#131631", marginBottom: "5%"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <Avatar alt="Deon Vosloo" src={ProfilePicture}  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}/>

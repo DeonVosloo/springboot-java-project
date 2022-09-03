@@ -49,7 +49,7 @@ export default function StudentsTable() {
   
 
   return (
-    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: "#3a3f4a", marginTop: "5%"}}>
+    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: "#3a3f4a"}}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead >
           <TableRow >
