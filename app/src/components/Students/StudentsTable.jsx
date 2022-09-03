@@ -9,8 +9,6 @@ import Paper from '@mui/material/Paper';
 import {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 
 
 export default function StudentsTable() {
@@ -74,61 +72,24 @@ export default function StudentsTable() {
               key={student.id}
               sx={{'&:last-child td, &:last-child th': { border: 0 }}}
             >
-              <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                  <Grid item xs={4} md={6} lg={12}>
-                    <TableCell component="th" scope="row" sx={{color: "whitesmoke"}}>
-                      {student.fullName}
-                    </TableCell>
-                  </Grid>
-                  <Grid item xs={4} md={6} lg={12}>
-                    <TableCell align="right" sx={{color: "whitesmoke"}}>{student.address}</TableCell>
-                  </Grid>
-                  <Grid item xs={4} md={6} lg={12}>
-                    <TableCell align="right" sx={{color: "whitesmoke"}}>{student.email}</TableCell>
-                  </Grid>
-                  <Grid item xs={4} md={6} lg={12}>
-                    <TableCell align="right" sx={{color: "whitesmoke"}}>{student.password}</TableCell>
-                  </Grid>
-
-                  <Grid item xs={4} md={6} lg={12}>
-                    <TableCell align="right" sx={{color: "whitesmoke"}}>{student.courseName}</TableCell>
-                  </Grid>
-
-                  <Grid item xs={4} md={6} lg={12}>
-                    <TableCell align="right" sx={{color: "whitesmoke"}}>
-                      <Button variant="contained" 
-                        sx={{bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'},}
-                        }>
-
-                          <Typography variant="p" color="initial">EDIT</Typography>
-
-                      </Button>
-                  </TableCell>
-                  </Grid>
-
-                  <Grid item xs={4} md={6} lg={12}>
-                    <TableCell align="right" sx={{color: "whitesmoke"}}>
-                      <Button variant="contained"  onClick={() => removeStudent(student.id)}
-                        sx={{bgcolor: "#fc3d3d", ':hover': {bgcolor: '#bf3030'}}}>
-
-                          <Typography variant="p" color="initial">DELETE</Typography>
-
-                      </Button>
-                    </TableCell>
-                  </Grid>
-                </Grid>
-              </Box>
-              
-              
-              
-              
-              
-
-              
-
-
-
+              <TableCell component="th" scope="row" sx={{color: "whitesmoke"}}>
+                {student.fullName}
+              </TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.address}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.email}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.password}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.courseName}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke"}}>
+                <Button variant="contained" 
+                sx={{bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'},}
+                }>
+                  <Typography variant="p" color="initial">EDIT</Typography>
+                </Button></TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke"}}>
+                <Button variant="contained"  onClick={() => removeStudent(student.id)}
+                sx={{bgcolor: "#fc3d3d", ':hover': {bgcolor: '#bf3030'}}}>
+                  <Typography variant="p" color="initial">DELETE</Typography>
+                </Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
