@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 public class Student 
 {
@@ -65,8 +67,10 @@ public class Student
         return password;
     }
 
-    public void setPassword(String password) {  
-        this.password = password;
+    public void setPassword(String password) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String tempPassword = passwordEncoder.encode(password); 
+        this.password = tempPassword;
     }
     
     public String getCourseName() {

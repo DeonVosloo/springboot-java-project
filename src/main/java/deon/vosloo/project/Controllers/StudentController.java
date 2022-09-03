@@ -30,13 +30,12 @@ public class StudentController
     }
 
     @PostMapping("/save-student")
-    public String saveStudent(@RequestBody Student student) {
+    public void saveStudent(@RequestBody Student student) {
         studentRepository.save(student);
-        return "Student saved to database";
     }
 
     @PutMapping("/update-student/{id}")
-    public String updateStudent(@PathVariable Long id, @RequestBody Student student) 
+    public void updateStudent(@PathVariable Long id, @RequestBody Student student) 
     {
         Student updateStudent = studentRepository.findById(id).get();
 
@@ -47,15 +46,12 @@ public class StudentController
         updateStudent.setCourseName(student.getCourseName());
 
         studentRepository.save(updateStudent);
-
-        return "updated Student";
     }
 
     @DeleteMapping("/delete-student/{id}")
-    public String deleteStudent(@PathVariable Long id) 
+    public void deleteStudent(@PathVariable Long id) 
     {
         Student deleteStudent = studentRepository.findById(id).get();
         studentRepository.delete(deleteStudent);
-        return "Deleted student: " + id + " " + deleteStudent.getFullName();
     }
 }
