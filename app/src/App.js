@@ -10,9 +10,7 @@ const App = () => {
 
   return (
     <div className="App">
-
       <AppHeader/>
-
       <div>
         <StudentsTableGrid/>
       </div>
