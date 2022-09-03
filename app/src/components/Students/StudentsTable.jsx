@@ -36,19 +36,19 @@ export default function StudentsTable() {
   
 
   return (
-    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: ""}}>
+    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center'}}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Student Name</TableCell>
-            <TableCell align="right">Student Address</TableCell>
-            <TableCell align="right">Student Email</TableCell>
-            <TableCell align="right">Student Password</TableCell>
-            <TableCell align="right">Student Course name</TableCell>
-            <TableCell align="right">Edit Student</TableCell>
-            <TableCell align="right">Delete Student</TableCell>
-            <TableCell align="right"><Button variant="outlined">
-                <Typography variant="p" color="initial">ADD STUDENT</Typography>
+        <TableHead >
+          <TableRow >
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}}>Student Name</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Address</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Email</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Password</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Course name</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Edit Student</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Delete Student</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right"><Button variant="contained" sx={{bgcolor: "#4566ad #334b80", ':hover:': {bgcolor: "#334b80"}}}>
+                <Typography variant="p" color="white">ADD STUDENT</Typography>
               </Button></TableCell>
           </TableRow>
         </TableHead>
@@ -65,10 +65,10 @@ export default function StudentsTable() {
               <TableCell align="right">{student.email}</TableCell>
               <TableCell align="right">{student.password}</TableCell>
               <TableCell align="right">{student.courseName}</TableCell>
-              <TableCell align="right"><Button variant="outlined">
+              <TableCell align="right"><Button variant="contained" sx={{bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'},}}>
                 <Typography variant="p" color="initial">EDIT</Typography>
               </Button></TableCell>
-              <TableCell align="right"><Button variant="outlined">
+              <TableCell align="right"><Button variant="contained" sx={{bgcolor: "#fc3d3d", ':hover': {bgcolor: '#bf3030'}}}>
                 <Typography variant="p" color="initial">DELETE</Typography>
               </Button></TableCell>
             </TableRow>
