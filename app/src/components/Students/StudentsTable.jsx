@@ -67,11 +67,11 @@ export default function StudentsTable() {
               <TableCell component="th" scope="row" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>
                 {student.fullName}
               </TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.address}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.email}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`, textOverflow:"ellipsis", overflowX: "hidden"}}>{student.address}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`, textOverflow:"ellipsis", overflowX: "hidden"}}>{student.email}</TableCell>
               <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`, textOverflow:"ellipsis", overflowX: "hidden"}}>{student.password}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.courseName}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`, textOverflow:"ellipsis", overflowX: "hidden"}}>{student.courseName}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke"}}>
                 <Button variant="contained" 
                 sx={{bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'},}
                 }>
