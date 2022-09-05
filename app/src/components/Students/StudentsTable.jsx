@@ -18,10 +18,6 @@ export default function StudentsTable() {
 
   let getStudentsData = () => {
     fetch("/api/students", {
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
     })
       .then((response) => response.json())
       .then((data) => {      
@@ -29,13 +25,9 @@ export default function StudentsTable() {
       });
   };
 
-  const removeStudent = async (id) => {
+  let removeStudent = async (id) => {
     await fetch(`/api/delete-student/${id}`, {
       method: 'DELETE',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
     }).then(() => {
       let updatedStudents = [...students].filter(i => i.id !== id);
       setStudents(updatedStudents);
@@ -49,20 +41,20 @@ export default function StudentsTable() {
   
 
   return (
-    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: "#3a3f4a"}}>
+    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: "#3a3f4a", fontFamily: `Ubuntu, sans-serif`}}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead >
           <TableRow >
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}}>Student Name</TableCell>
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Address</TableCell>
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Email</TableCell>
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Password</TableCell>
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Student Course name</TableCell>
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Edit Student</TableCell>
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">Delete Student</TableCell>
-            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631"}} align="right">
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}}>Student Name</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Student Address</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Student Email</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Student Password</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Student Course name</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Edit Student</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Delete Student</TableCell>
+            <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">
               <Button variant="contained" sx={{bgcolor: "#4566ad #334b80", ':hover:': {bgcolor: "#334b80"}}}>
-                <Typography variant="p" color="white">ADD STUDENT</Typography>
+                <Typography variant="p" color="white" sx={{fontFamily: `Ubuntu, sans-serif`}}>ADD STUDENT</Typography>
               </Button></TableCell>
           </TableRow>
         </TableHead>
@@ -72,23 +64,23 @@ export default function StudentsTable() {
               key={student.id}
               sx={{'&:last-child td, &:last-child th': { border: 0 }}}
             >
-              <TableCell component="th" scope="row" sx={{color: "whitesmoke"}}>
+              <TableCell component="th" scope="row" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>
                 {student.fullName}
               </TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.address}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.email}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.password}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke"}}>{student.courseName}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke"}}>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.address}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.email}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.password}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.courseName}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>
                 <Button variant="contained" 
                 sx={{bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'},}
                 }>
-                  <Typography variant="p" color="initial">EDIT</Typography>
+                  <Typography variant="p" color="initial"sx={{fontFamily: `Ubuntu, sans-serif`}}>EDIT</Typography>
                 </Button></TableCell>
               <TableCell align="right" sx={{color: "whitesmoke"}}>
                 <Button variant="contained"  onClick={() => removeStudent(student.id)}
                 sx={{bgcolor: "#fc3d3d", ':hover': {bgcolor: '#bf3030'}}}>
-                  <Typography variant="p" color="initial">DELETE</Typography>
+                  <Typography variant="p" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`}}>DELETE</Typography>
                 </Button></TableCell>
             </TableRow>
           ))}

@@ -48,6 +48,7 @@ const Appheader = () => {
               letterSpacing: '.3rem',
               color: 'white',
               textDecoration: 'none',
+              fontFamily: `Ubuntu, sans-serif`
             }}
           >
             BELGIUM CAMPUS PORTAL
