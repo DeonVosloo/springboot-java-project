@@ -42,7 +42,7 @@ export default function StudentsTable() {
 
   return (
     <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: "#3a3f4a", fontFamily: `Ubuntu, sans-serif`}}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650, tableLayout: "fixed" }} aria-label="simple table">
         <TableHead >
           <TableRow >
             <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}}>Student Name</TableCell>
@@ -69,7 +69,7 @@ export default function StudentsTable() {
               </TableCell>
               <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.address}</TableCell>
               <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.email}</TableCell>
-              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.password}</TableCell>
+              <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`, textOverflow:"ellipsis", overflowX: "hidden"}}>{student.password}</TableCell>
               <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>{student.courseName}</TableCell>
               <TableCell align="right" sx={{color: "whitesmoke", fontFamily: `Ubuntu, sans-serif`}}>
                 <Button variant="contained" 
