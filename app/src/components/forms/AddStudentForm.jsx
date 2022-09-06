@@ -8,6 +8,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import Button from '@mui/material/Button'
 import { useState } from 'react';
 import TextField from '@mui/material/TextField'
+import { Link } from 'react-router-dom';
 
 
 function MyFormHelperText(props) {
@@ -115,7 +116,7 @@ function AddStudentForm() {
                                 <Button variant="contained" sx={{
                                   maxWidth: "100%", width: "70%", height: 41, bgcolor: "green", marginBottom: "3%", marginTop: "4%", marginLeft: "15%",
                                   display: "flex", justifyContent: "center"
-                                  }} onClick={(addStudent)}>
+                                  }} onClick={(addStudent)} component={Link} to="/">
                                   <Typography variant="p" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`}}>Add Student</Typography>
                                 </Button>
 
