@@ -29,6 +29,13 @@ public class StudentController
         return studentRepository.findAll();
     }
 
+    @GetMapping("/student/{id}")
+    public Student getStudent(@PathVariable Long id) 
+    {
+        Student student = studentRepository.findById(id).get();
+        return student;
+    }
+
     @PostMapping("/save-student")
     public void saveStudent(@RequestBody Student student) {
         studentRepository.save(student);

@@ -76,8 +76,8 @@ export default function StudentsTable() {
               <TableCell align="right" sx={{color: "whitesmoke"}}>
                 <Button variant="contained" 
                 sx={{bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'},}
-                }>
-                  <Typography variant="p" color="initial"sx={{fontFamily: `Ubuntu, sans-serif`}}>EDIT</Typography>
+                } component={Link} to="update-student" studentID={student.id} studentObject={student}>
+                  <Typography variant="p" color="initial"sx={{fontFamily: `Ubuntu, sans-serif`}} >EDIT</Typography>
                 </Button></TableCell>
               <TableCell align="right" sx={{color: "whitesmoke"}}>
                 <Button variant="contained"  onClick={() => removeStudent(student.id)}

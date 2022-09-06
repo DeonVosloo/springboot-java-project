@@ -1,12 +1,11 @@
 import React from 'react';
-import Appheader from '../AppHeader/AppHeader';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import FormControl, { useFormControl } from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import Button from '@mui/material/Button'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField'
 import { Link } from 'react-router-dom';
 
@@ -25,12 +24,27 @@ function MyFormHelperText(props) {
     return <FormHelperText>{helperText}</FormHelperText>;
   }
 
-function AddStudentForm() {
+function UpdateStudentForm(props) {
 
-  const [students, setStudents] = useState([]);
+    const [students, setStudents] = useState([]);
 
-  let addStudent = async () => {
-    await fetch(`/api/save-student`, {
+      let getStudentsData = () => {
+    fetch(`/api/student/${props.studentID}}`, {
+    })
+      .then((response) => response.json())
+      .then((data) => {      
+        setStudents(data);
+      });
+  };
+
+  useEffect(() => {
+    getStudentsData();
+  }, []);
+
+
+
+  let updateStudent = async () => {
+    await fetch(`/api/update-student`, {
       method: 'POST',
       body: JSON.stringify(student),
       headers: {
@@ -44,11 +58,11 @@ function AddStudentForm() {
     )}
 
   let student = {
-    fullName: "",
-    address: "",
-    email: "",
+    fullName: props.student.fullName,
+    address: props.student.address,
+    email: props.student.email,
     password: "",
-    courseName: "",
+    courseName: props.student.courseName,
   };
 
   let handleNameChange = (e) =>
@@ -83,22 +97,22 @@ function AddStudentForm() {
                 <Box sx={{ flexGrow: 1, border: 1, borderRadius: 2.5, bgcolor: "whitesmoke"}}>
                     <Grid container spacing={2} sx={{display: "flex", justifyContent: "center"}}>
                         <Grid item xs={11.3}>
-                            <Typography variant="h2" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`, marginTop: "2%"}}>Add Student</Typography>
+                            <Typography variant="h2" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`, marginTop: "2%"}}>Update Student</Typography>
                             <Typography variant="h4" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`, marginTop: "1%"}}>Please enter the student details</Typography>
                         </Grid>
                         <Grid item xs={11.3}>
                         <Box>                     
-                              <TextField id="" label="Full Name" onChange={handleNameChange} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                              <TextField id="" label="Full Name" defaultValue={props.studentObject.fullName} onChange={handleNameChange} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
                           </Box>
                         </Grid>
                         <Grid item xs={11.3}>
                           <Box>                     
-                              <TextField id="" label="Address" onChange={handleAddressChange} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                              <TextField id="" label="Address" onChange={handleAddressChange} defaultValue={props.studentObject.address} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
                           </Box>
                         </Grid>
                         <Grid item xs={11.3}>
                         <Box>                     
-                              <TextField id="" label="Email" onChange={handleEmailChange} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                              <TextField id="" label="Email" onChange={handleEmailChange} defaultValue={props.studentObject.email} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
                           </Box>
                         </Grid>
                         <Grid item xs={11.3}>
@@ -110,13 +124,13 @@ function AddStudentForm() {
                         <Grid item xs={11.3}>
                           <Box component="form" noValidate autoComplete="off">
                             <FormControl sx={{ width: 800, maxWidth: '100%', marginBottom: "1%", fontFamily: `Ubuntu, sans-serif` }}>
-                            <TextField id="" label="Course Name" onChange={handleCourseChange} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                            <TextField id="" label="Course Name" onChange={handleCourseChange} defaultValue={props.studentObject.courseName} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
 
                                 <Button variant="contained" sx={{
                                   maxWidth: "100%", width: "70%", height: 41, bgcolor: "green", marginBottom: "3%", marginTop: "4%", marginLeft: "15%",
                                   display: "flex", justifyContent: "center"
-                                  }} onClick={(addStudent)} component={Link} to="/">
-                                  <Typography variant="p" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`}}>Add Student</Typography>
+                                  }} onClick={(updateStudent)} component={Link} to="/">
+                                  <Typography variant="p" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`}}>Update Student</Typography>
                                 </Button>
 
                             </FormControl>                     
@@ -133,4 +147,4 @@ function AddStudentForm() {
   )
 }
 
-export default AddStudentForm
+export default UpdateStudentForm
