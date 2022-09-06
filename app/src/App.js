@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import {useState, useEffect ,React} from 'react';
 import AppHeader from "./components/AppHeader/AppHeader";
 import StudentsTableGrid from "./components/Students/StudentsTableGrid";
 import AddStudentForm from './components/forms/AddStudentForm';
-import Typography from '@mui/material/Typography'
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
 
@@ -13,14 +11,10 @@ const App = () => {
   return (
     <div className="App">
       <AppHeader/>
-      <div>
-        <StudentsTableGrid/>
-      </div>
-
-      <div>
-        <Typography variant="h1" color="white">Add Student Form</Typography>
-        <AddStudentForm/>
-      </div>
+      <Routes>
+        <Route exact path="/" element={<StudentsTableGrid/>} />
+        <Route path="add-student" element={<AddStudentForm/>} />
+      </Routes>
     </div>
   );
 }

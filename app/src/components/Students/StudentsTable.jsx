@@ -9,6 +9,8 @@ import Paper from '@mui/material/Paper';
 import {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import CustomLinks from '../customLinks/CustomLinks';
+import { Link } from 'react-router-dom';
 
 
 export default function StudentsTable() {
@@ -41,7 +43,7 @@ export default function StudentsTable() {
   
 
   return (
-    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: "#3a3f4a", fontFamily: `Ubuntu, sans-serif`}}>
+    <TableContainer component={Paper} sx={{display: 'flex', justifyContent: 'center', bgcolor: "#3a3f4a", marginBottom: "2.5%" }}>
       <Table sx={{ minWidth: 650, tableLayout: "fixed" }} aria-label="simple table">
         <TableHead >
           <TableRow >
@@ -53,8 +55,8 @@ export default function StudentsTable() {
             <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Edit Student</TableCell>
             <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">Delete Student</TableCell>
             <TableCell sx={{color: "whitesmoke", bgcolor: "#131631", fontFamily: `Ubuntu, sans-serif`}} align="right">
-              <Button variant="contained" sx={{bgcolor: "#4566ad #334b80", ':hover:': {bgcolor: "#334b80"}}}>
-                <Typography variant="p" color="white" sx={{fontFamily: `Ubuntu, sans-serif`}}>ADD STUDENT</Typography>
+              <Button variant="contained" sx={{bgcolor: "#4566ad #334b80", ':hover:': {bgcolor: "#334b80"}}} component={Link} to="add-student">
+                <Typography variant="p" color="white" sx={{fontFamily: `Ubuntu, sans-serif`}}>Add Student</Typography>
               </Button></TableCell>
           </TableRow>
         </TableHead>

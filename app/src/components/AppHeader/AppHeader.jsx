@@ -16,7 +16,7 @@ import ProfilePicture from "../../images/bc.png";
 
 const pages = ['Home', 'About', 'Work', "Skills"];
 
-const Appheader = () => {
+const Appheader = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {

@@ -78,8 +78,6 @@ function AddStudentForm() {
 
   return (
     <div>
-        <Appheader/>
-
         <Grid container spacing={2} sx={{display: "flex", justifyContent: "center", paddingBottom: "3%"}}>
             <Grid item xs={11} md={10} lg={9}>
                 <Box sx={{ flexGrow: 1, border: 1, borderRadius: 2.5, bgcolor: "whitesmoke"}}>
