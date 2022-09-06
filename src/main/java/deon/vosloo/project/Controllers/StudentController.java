@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import deon.vosloo.project.Modals.Student;
 import deon.vosloo.project.repository.StudentRepository;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @RestController
 @RequestMapping("/api")
 public class StudentController 
@@ -32,8 +34,25 @@ public class StudentController
     @GetMapping("/student/{id}")
     public Student getStudent(@PathVariable Long id) 
     {
-        Student student = studentRepository.findById(id).get();
-        return student;
+        return studentRepository.findById(id).get();
+    }
+
+    @GetMapping("/login")
+    public boolean CheckIfLoginValid(@PathVariable String email, @PathVariable String password) 
+    {
+        boolean isValid = false;
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String tempPassword = passwordEncoder.encode(password); 
+
+        List<Student> studentList = studentRepository.findAll();
+
+        for (Student student : studentList) {
+            if (email.equals(student.getEmail())  && tempPassword.equals(student.getPassword())) {
+                isValid = true;
+            }
+        }
+
+        return isValid;
     }
 
     @PostMapping("/save-student")

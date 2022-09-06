@@ -9,12 +9,17 @@ import Paper from '@mui/material/Paper';
 import {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import CustomLinks from '../customLinks/CustomLinks';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function StudentsTable() {
 
+
+  const navigate = useNavigate();
+
+  const NavigateToUpdateStudent=(props)=>{
+    navigate('/update-student',{state:{student:props}});
+      }
 
   const [students, setStudents] = useState([]);
 
@@ -76,7 +81,7 @@ export default function StudentsTable() {
               <TableCell align="right" sx={{color: "whitesmoke"}}>
                 <Button variant="contained" 
                 sx={{bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'},}
-                } component={Link} to="update-student" studentID={student.id} studentObject={student}>
+                } onClick={()=> NavigateToUpdateStudent(student)} >
                   <Typography variant="p" color="initial"sx={{fontFamily: `Ubuntu, sans-serif`}} >EDIT</Typography>
                 </Button></TableCell>
               <TableCell align="right" sx={{color: "whitesmoke"}}>

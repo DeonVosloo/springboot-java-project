@@ -2,34 +2,23 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import FormControl, { useFormControl } from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button'
 import { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
-function MyFormHelperText(props) {
-    const { focused } = useFormControl() || {};
-  
-    const helperText = React.useMemo(() => {
-      if (focused) {
-        return props.focusedText;
-      }
-  
-      return props.hintText;
-    }, [focused]);
-  
-    return <FormHelperText>{helperText}</FormHelperText>;
-  }
 
-function UpdateStudentForm(props) {
+function UpdateStudentForm() {
 
     const [students, setStudents] = useState([]);
 
-      let getStudentsData = () => {
-    fetch(`/api/student/${props.studentID}}`, {
+     const location = useLocation();
+     console.log(location.state.student.id);
+
+      let getStudentData = () => {
+    fetch(`/api/student/${1}`, {
     })
       .then((response) => response.json())
       .then((data) => {      
@@ -38,15 +27,15 @@ function UpdateStudentForm(props) {
   };
 
   useEffect(() => {
-    getStudentsData();
+    getStudentData();
   }, []);
 
 
 
   let updateStudent = async () => {
-    await fetch(`/api/update-student`, {
-      method: 'POST',
-      body: JSON.stringify(student),
+    await fetch(`/api/update-student/${location.state.student.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(tempStudent),
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -54,38 +43,37 @@ function UpdateStudentForm(props) {
         "Access-Control-Allow-Headers": "X-Requested-With"
       },
     }).then(response => response.json(),
-    console.log("added student: " + student)
     )}
 
-  let student = {
-    fullName: props.student.fullName,
-    address: props.student.address,
-    email: props.student.email,
+  let tempStudent = {
+    fullName: "",
+    address: "",
+    email: "",
     password: "",
-    courseName: props.student.courseName,
+    courseName: "",
   };
 
   let handleNameChange = (e) =>
   {
-    student.fullName = e.target.value;
+    tempStudent.fullName = e.target.value;
   };
 
   let handleAddressChange = (e) =>
   {
-    student.address = e.target.value;
+    tempStudent.address = e.target.value;
   };
 
   let handleEmailChange = (e) =>
   {
-    student.email = e.target.value;
+    tempStudent.email = e.target.value;
   };
   let handlePasswordChange = (e) =>
   {
-    student.password = e.target.value;
+    tempStudent.password = e.target.value;
   };
   let handleCourseChange = (e) =>
   {
-    student.courseName = e.target.value;
+    tempStudent.courseName = e.target.value;
   };
 
 
@@ -102,17 +90,17 @@ function UpdateStudentForm(props) {
                         </Grid>
                         <Grid item xs={11.3}>
                         <Box>                     
-                              <TextField id="" label="Full Name" defaultValue={props.studentObject.fullName} onChange={handleNameChange} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                              <TextField id="" label="Full Name" defaultValue={location.state.student.fullName} onChange={handleNameChange} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
                           </Box>
                         </Grid>
                         <Grid item xs={11.3}>
                           <Box>                     
-                              <TextField id="" label="Address" onChange={handleAddressChange} defaultValue={props.studentObject.address} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                              <TextField id="" label="Address" onChange={handleAddressChange} defaultValue={location.state.student.address}  sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
                           </Box>
                         </Grid>
                         <Grid item xs={11.3}>
                         <Box>                     
-                              <TextField id="" label="Email" onChange={handleEmailChange} defaultValue={props.studentObject.email} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                              <TextField id="" label="Email" onChange={handleEmailChange} defaultValue={location.state.student.email} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
                           </Box>
                         </Grid>
                         <Grid item xs={11.3}>
@@ -124,7 +112,7 @@ function UpdateStudentForm(props) {
                         <Grid item xs={11.3}>
                           <Box component="form" noValidate autoComplete="off">
                             <FormControl sx={{ width: 800, maxWidth: '100%', marginBottom: "1%", fontFamily: `Ubuntu, sans-serif` }}>
-                            <TextField id="" label="Course Name" onChange={handleCourseChange} defaultValue={props.studentObject.courseName} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
+                            <TextField id="" label="Course Name" onChange={handleCourseChange} defaultValue={location.state.student.courseName} sx={{ width: 800, maxWidth: '100%', fontFamily: `Ubuntu, sans-serif` }}/>
 
                                 <Button variant="contained" sx={{
                                   maxWidth: "100%", width: "70%", height: 41, bgcolor: "green", marginBottom: "3%", marginTop: "4%", marginLeft: "15%",
