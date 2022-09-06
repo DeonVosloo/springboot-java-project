@@ -98,8 +98,9 @@ function AddStudentForm() {
 
                                 <Button variant="contained" sx={{
                                   maxWidth: "100%", width: "70%", height: 41, bgcolor: "green", marginBottom: "3%", marginTop: "4%", marginLeft: "15%",
-                                  display: "flex", justifyContent: "center"
-                                  }} onClick={(addStudent)} component={Link} to="/">
+                                  display: "flex", justifyContent: "center", bgcolor: " #02f071", ':hover': {bgcolor: '#02b555'}
+                                }
+                                  } onClick={(addStudent)} component={Link} to="/">
                                   <Typography variant="p" color="initial" sx={{fontFamily: `Ubuntu, sans-serif`}}>Add Student</Typography>
                                 </Button>
 

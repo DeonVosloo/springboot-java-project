@@ -38,7 +38,7 @@ public class StudentController
     }
 
     @GetMapping("/login")
-    public boolean CheckIfLoginValid(@PathVariable String email, @PathVariable String password) 
+    public boolean CheckIfLoginValid(@RequestBody String email, @RequestBody String password) 
     {
         boolean isValid = false;
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
