@@ -12,21 +12,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import deon.vosloo.project.Modals.Admin;
+import deon.vosloo.project.Modals.Login;
 import deon.vosloo.project.Modals.Student;
+import deon.vosloo.project.repository.AdminRepository;
+import deon.vosloo.project.repository.LoginRepository;
 import deon.vosloo.project.repository.StudentRepository;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @RestController
 @RequestMapping("/api")
-public class StudentController 
+public class APIController 
 {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private AdminRepository adminRepository;
+
+    @Autowired
+    private LoginRepository loginRepository;
+
 
     @GetMapping("/students")
     public List<Student> getStudents() 
+    {
+        return studentRepository.findAll();
+    }
+
+    @GetMapping("/get-admins")
+    public List<Student> getAdmins() 
     {
         return studentRepository.findAll();
     }
@@ -38,21 +53,19 @@ public class StudentController
     }
 
     @GetMapping("/login")
-    public boolean CheckIfLoginValid(@RequestBody String email, @RequestBody String password) 
+    public List<Login> getLogins() 
     {
-        boolean isValid = false;
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String tempPassword = passwordEncoder.encode(password); 
+        return loginRepository.findAll();
+    }
 
-        List<Student> studentList = studentRepository.findAll();
+    @PostMapping("/save-login")
+    public void saveLogin(@RequestBody Login login) {
+        loginRepository.save(login);
+    }
 
-        for (Student student : studentList) {
-            if (email.equals(student.getEmail())  && tempPassword.equals(student.getPassword())) {
-                isValid = true;
-            }
-        }
-
-        return isValid;
+    @PostMapping("/save-admin")
+    public void saveAdmin(@RequestBody Admin admin) {
+        adminRepository.save(admin);
     }
 
     @PostMapping("/save-student")
@@ -79,5 +92,41 @@ public class StudentController
     {
         Student deleteStudent = studentRepository.findById(id).get();
         studentRepository.delete(deleteStudent);
+    }
+
+    @PutMapping("/update-login/{id}")
+    public void updateLogin(@PathVariable Long id, @RequestBody Login login) 
+    {
+        Login updateLogin = loginRepository.findById(id).get();
+        updateLogin.setEmail(login.getEmail());
+        updateLogin.setPassword(login.getPassword());
+        updateLogin.setaccountType(login.getaccountType());
+
+        loginRepository.save(updateLogin);
+    }
+
+    @DeleteMapping("/delete-login/{id}")
+    public void deleteLogin(@PathVariable Long id) 
+    {
+        Login deletelogin = loginRepository.findById(id).get();
+        loginRepository.delete(deletelogin);
+    }
+
+    @PutMapping("/update-admin/{id}")
+    public void updateAdmin(@PathVariable Long id, @RequestBody Admin admin) 
+    {
+        Admin updateAdmin = adminRepository.findById(id).get();
+        updateAdmin.setEmail(admin.getEmail());
+        updateAdmin.setPassword(admin.getPassword());
+        updateAdmin.setAdminName(admin.getAdminName());
+
+        adminRepository.save(updateAdmin);
+    }
+
+    @DeleteMapping("/delete-admin/{id}")
+    public void deleteAdmin(@PathVariable Long id) 
+    {
+        Admin deletelogin = adminRepository.findById(id).get();
+        adminRepository.delete(deletelogin);
     }
 }

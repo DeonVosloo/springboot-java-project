@@ -29,6 +29,13 @@ public class Home {
                 registry.addMapping("/api/save-student").allowedOrigins("http://localhost:8081");
                 registry.addMapping("/api/update-student/{id}").allowedOrigins("http://localhost:8081");
                 registry.addMapping("/api/delete-student/{id}").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/api/student/{id}").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/api/login").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/api/delete-login/{id}").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/api/update-login/{id}").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/api/get-admins").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/api/update-admin/{id}").allowedOrigins("http://localhost:8081");
+                registry.addMapping("/api/delete-admin/{id}").allowedOrigins("http://localhost:8081");
 			}
 		};
 	}
